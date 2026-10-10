@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/jpeg" href="profile.jpg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aliaa Mohamed | AI / ML Engineer</title>
+<meta name="description" content="Portfolio of Aliaa Mohamed Abdo, AI / ML Engineer specializing in Computer Vision, Deep Learning and NLP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{display:['"Bricolage Grotesque"','system-ui','sans-serif'],sans:['"Plus Jakarta Sans"','system-ui','sans-serif']}}}}</script>
+<style>
+/* One accent (indigo) + neutrals. Light is the default theme. */
+:root{--bg:#fbfbfd;--ink:#15162b;--mute:#5d6176;--card:#ffffff;--bd:#e5e7ef;--acc:#4f46e5;--acc-s:rgba(79,70,229,.08)}
+.dark{--bg:#0d0e16;--ink:#eceef6;--mute:#9a9fb5;--card:#151722;--bd:#262a3a;--acc:#8f90f7;--acc-s:rgba(143,144,247,.12)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);transition:background .35s,color .35s}
+.mute{color:var(--mute)}.acc{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:1.25rem;transition:background .35s,border-color .35s}
+.nav{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:.75rem;padding:.7rem 1.25rem;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-p{background:var(--acc);color:#fff}.dark .btn-p{color:#0d0e16}
+.btn-p:hover{filter:brightness(1.08)}
+.btn-g{border:1px solid var(--bd);background:var(--card)}
+.btn-g:hover{border-color:var(--acc)}
+.ico{width:2.35rem;height:2.35rem;display:inline-grid;place-items:center;border-radius:.65rem;border:1px solid var(--bd);background:var(--card);transition:border-color .2s,color .2s}
+.ico:hover{border-color:var(--acc);color:var(--acc)}
+.ico svg{width:1.1rem;height:1.1rem;fill:currentColor}
+.chip{font-size:.78rem;padding:.2rem .65rem;border-radius:.5rem;border:1px solid var(--bd);color:var(--mute)}
+.metric{font-size:.8rem;font-weight:600;padding:.25rem .7rem;border-radius:.5rem;background:var(--acc-s);color:var(--acc)}
+.tilt{transform-style:preserve-3d;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.tilt.on{transition:transform .08s linear}
+.tilt:hover{border-color:var(--acc);box-shadow:0 24px 48px -28px rgba(79,70,229,.45)}
+.sw{width:3.1rem;height:1.75rem;border-radius:999px;border:1px solid var(--bd);background:var(--card);position:relative}
+.sw i{position:absolute;top:3px;left:3px;width:1.2rem;height:1.2rem;border-radius:50%;background:var(--acc);display:grid;place-items:center;font-style:normal;font-size:.65rem;transition:transform .35s cubic-bezier(.5,1.5,.4,1)}
+.dark .sw i{transform:translateX(1.3rem)}
+.photo{width:min(18rem,78vw);aspect-ratio:18/22;border-radius:1.75rem;overflow:hidden;border:1px solid var(--bd);background:var(--card);box-shadow:0 0 0 8px var(--acc-s),0 30px 70px -30px rgba(79,70,229,.5);will-change:transform}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:45% 30%;display:block;pointer-events:none}
+.photo:hover{box-shadow:0 0 0 8px var(--acc-s),0 40px 80px -30px rgba(79,70,229,.6)}
+.tl{border-left:1px solid var(--bd)}
+.tl>div{position:relative}
+.tl>div::before{content:"";position:absolute;left:-2.28rem;top:.45rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--bg)}
+input,textarea{background:var(--card);border:1px solid var(--bd);border-radius:.75rem;padding:.75rem 1rem;width:100%;color:var(--ink);outline:none;transition:border-color .2s}
+input:focus,textarea:focus{border-color:var(--acc)}
+button.cert{cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s,background .35s}
+button.cert:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 18px 36px -24px rgba(79,70,229,.5)}
+#modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(10,11,25,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#modal.open{display:flex;animation:fade .25s ease}
+#modal .panel{animation:pop .3s cubic-bezier(.2,.9,.3,1.1);max-width:min(64rem,100%);max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+#mimg{max-width:100%;max-height:72vh;object-fit:contain;border-radius:.75rem;margin:0 auto;display:block}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.err{color:#d6336c;font-size:.8rem;min-height:1.1rem}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+section[id]{scroll-margin-top:3.5rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="gh" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></symbol>
+  <symbol id="in" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H4v.6l8 5.4 8-5.4V7h-.4L12 12.2z"/></symbol>
+</svg>
+
+<!-- NAVBAR -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <nav class="nav" aria-label="Main">
+    <div class="mx-auto max-w-6xl px-5 h-14 flex items-center justify-between">
+      <a href="#top" class="font-display font-bold text-lg">Aliaa Mohamed</a>
+      <ul class="hidden md:flex gap-7 text-sm font-medium mute">
+        <li><a href="#projects" class="hover:text-[color:var(--acc)]">Projects</a></li>
+        <li><a href="#skills" class="hover:text-[color:var(--acc)]">Skills</a></li>
+        <li><a href="#experience" class="hover:text-[color:var(--acc)]">Experience</a></li>
+        <li><a href="#education" class="hover:text-[color:var(--acc)]">Education</a></li>
+        <li><a href="#contact" class="hover:text-[color:var(--acc)]">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <a class="ico" href="https://github.com/aliaa-mohamed47" target="_blank" rel="noopener" aria-label="GitHub profile"><svg><use href="#gh"/></svg></a>
+        <a class="ico" href="https://www.linkedin.com/in/aliaa-mohamed-abdo/" target="_blank" rel="noopener" aria-label="LinkedIn profile"><svg><use href="#in"/></svg></a>
+        <button id="motion" class="ico" aria-pressed="false" aria-label="Pause background animation" title="Pause / resume background"><svg id="mi" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button>
+        <button id="theme" class="sw ml-1" role="switch" aria-checked="false" aria-label="Dark mode"><i id="ti">☀</i></button>
+        <button id="menu" class="md:hidden ico" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <ul id="mobile" class="hidden md:hidden px-5 pb-4 grid gap-3 font-medium border-t" style="border-color:var(--bd)">
+      <li class="pt-3"><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<section class="relative px-5 pt-24 sm:pt-28 pb-14">
+  <div class="relative mx-auto max-w-6xl grid md:grid-cols-[1fr_auto] gap-12 items-center">
+    <div>
+      <p class="text-sm font-medium acc">Giza, Egypt</p>
+      <h1 class="font-display font-bold text-4xl sm:text-6xl tracking-tight mt-3 leading-[1.05]">Aliaa Mohamed Abdo</h1>
+      <h2 class="font-display font-semibold text-xl sm:text-2xl mute mt-3">AI / ML Engineer</h2>
+      <p class="mute text-lg mt-6 max-w-2xl leading-relaxed">Senior AI student at Helwan University specializing in Computer Vision, Deep Learning, and NLP. Proven track record building end-to-end intelligent pipelines, evolutionary optimization frameworks, and containerized microservices.</p>
+      <div class="flex flex-wrap items-center gap-3 mt-8">
+        <a href="Aliaa_ML_CV.pdf" target="_blank" rel="noopener" class="btn btn-p"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 5c5 0 9 4.5 10 7-1 2.5-5 7-10 7S3 14.5 2 12c1-2.5 5-7 10-7zm0 3.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6z"/></svg>View Resume</a>
+        <a href="Aliaa_ML_CV.pdf" download="Aliaa_ML_CV.pdf" class="btn btn-p" style="background:transparent;color:var(--acc);border:1.5px solid var(--acc)"><svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M11 3h2v9l3.5-3.5 1.4 1.4L12 16 6.1 9.9l1.4-1.4L11 12V3zM5 18h14v2H5z"/></svg>Download CV</a>
+        <a href="#projects" class="btn mute !px-2">Explore projects ↓</a>
+      </div>
+      <div class="flex flex-wrap gap-3 mt-5">
+        <a class="btn btn-g !py-2 !px-4 text-sm" href="https://github.com/aliaa-mohamed47" target="_blank" rel="noopener"><svg class="w-4 h-4 fill-current"><use href="#gh"/></svg>GitHub</a>
+        <a class="btn btn-g !py-2 !px-4 text-sm" href="https://www.linkedin.com/in/aliaa-mohamed-abdo/" target="_blank" rel="noopener"><svg class="w-4 h-4 fill-current"><use href="#in"/></svg>LinkedIn</a>
+        <a class="btn btn-g !py-2 !px-4 text-sm" href="mailto:aliaamohamed472005@gmail.com"><svg class="w-4 h-4 fill-current"><use href="#mail"/></svg>Email</a>
+      </div>
+    </div>
+    <div class="justify-self-center md:order-last order-first" style="perspective:1000px">
+      <div class="photo tilt" data-tilt="1.8"><img src="profile.jpg" alt="Portrait of Aliaa Mohamed Abdo" width="288" height="352" onerror="this.onerror=null;this.src='https://github.com/aliaa-mohamed47.png'"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="px-5 py-16 mx-auto max-w-6xl">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl">Projects</h2>
+  <p class="mute mt-2 mb-10 max-w-xl">End-to-end systems, from research prototypes to containerized services.</p>
+  <div id="grid" class="grid md:grid-cols-2 gap-6" style="perspective:1200px"></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="px-5 py-20 mx-auto max-w-6xl">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl mb-10">Skills &amp; Technologies</h2>
+  <div id="skillgrid" class="grid sm:grid-cols-2 gap-6"></div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="px-5 py-20 mx-auto max-w-4xl">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl mb-10">Professional Experience &amp; Training</h2>
+  <div id="tl" class="tl ml-2 pl-8 grid gap-10"></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="px-5 py-20 mx-auto max-w-4xl">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl mb-10">Education &amp; Certifications</h2>
+  <div class="card p-7 rv">
+    <h3 class="font-display font-bold text-xl">Helwan University</h3>
+    <p class="mute">Faculty of Computers and Artificial Intelligence · B.Sc. in Artificial Intelligence · Sep 2023 – Jul 2027 (expected)</p>
+    <p class="mt-3"><b>GPA 3.41 / 4.00</b> · Overall evaluation: Excellent</p>
+    <p class="mute mt-3 text-sm leading-relaxed">Coursework: Deep Learning, Neural Networks, Computer Vision, NLP, Metaheuristics &amp; Evolutionary Algorithms, Optimization, Data Structures &amp; Algorithm Design.</p>
+  </div>
+  <h3 class="font-display font-bold text-xl mt-12 mb-4">Hackathons &amp; Competitions</h3>
+  <div id="hacks" class="grid sm:grid-cols-2 gap-4"></div>
+  <h3 class="font-display font-bold text-xl mt-10 mb-4">Certifications</h3>
+  <div id="certs" class="grid sm:grid-cols-2 gap-4"></div>
+  <p class="mute text-sm mt-6">Languages: Arabic (native) · English (professional working proficiency)</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="px-5 py-20 mx-auto max-w-5xl">
+  <h2 class="font-display font-bold text-3xl sm:text-4xl">Get in touch</h2>
+  <p class="mute mt-2 mb-10">Hiring, collaborating, or curious about a project? Send a message.</p>
+  <div class="grid md:grid-cols-2 gap-8">
+    <form id="form" class="card p-7 grid gap-2" action="https://formspree.io/f/moejwlqe" method="POST" novalidate>
+      <label class="text-sm font-medium" for="n">Name</label><input id="n" name="name" autocomplete="name"><div class="err" data-e="n"></div>
+      <label class="text-sm font-medium" for="e">Email</label><input id="e" name="email" type="email" autocomplete="email"><div class="err" data-e="e"></div>
+      <label class="text-sm font-medium" for="m">Message</label><textarea id="m" name="message" rows="5"></textarea><div class="err" data-e="m"></div>
+      <button class="btn btn-p" type="submit">Send message</button>
+      <p id="ok" class="text-sm min-h-[1.2rem] mute" role="status"></p>
+    </form>
+    <div class="grid gap-4 content-start">
+      <div class="card p-6">
+        <p class="mute text-sm">Email</p>
+        <p class="font-semibold break-all">aliaamohamed472005@gmail.com</p>
+        <button id="copy" class="btn btn-g !py-2 mt-3 text-sm">Copy email</button>
+      </div>
+      <div class="card p-6">
+        <p class="mute text-sm">Phone & WhatsApp</p>
+        <p class="font-semibold text-base mt-0.5">+20 150 140 8036</p>
+        <a href="https://wa.me/201501408036?text=Hi%20Aliaa,%20I%20saw%20your%20AI/ML%20portfolio%20and%20would%20like%20to%20discuss%20a%20project." 
+           target="_blank" rel="noopener" 
+           class="btn !py-2.5 mt-3 text-sm w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold flex items-center justify-center gap-2 rounded-xl transition">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.187-2.59-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+
+        <p class="mute text-sm mt-4">Location</p>
+        <p class="font-semibold">Giza, Egypt</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a class="btn btn-g" href="https://github.com/aliaa-mohamed47" target="_blank" rel="noopener"><svg class="w-4 h-4 fill-current"><use href="#gh"/></svg>GitHub</a>
+        <a class="btn btn-g" href="https://www.linkedin.com/in/aliaa-mohamed-abdo/" target="_blank" rel="noopener"><svg class="w-4 h-4 fill-current"><use href="#in"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle" aria-hidden="true">
+  <div class="panel card p-4 sm:p-6">
+    <div class="flex items-start justify-between gap-4 mb-4">
+      <div><h3 id="mtitle" class="font-display font-bold text-lg sm:text-xl"></h3><p id="msub" class="mute text-sm mt-1"></p></div>
+      <button id="mclose" class="ico shrink-0" aria-label="Close certificate">✕</button>
+    </div>
+    <div class="overflow-auto">
+      <img id="mimg" alt="">
+      <p id="mmiss" class="mute text-sm text-center py-10 hidden"></p>
+    </div>
+  </div>
+</div>
+
+<footer class="px-5 py-10 text-center text-sm mute border-t" style="border-color:var(--bd)">© <span id="yr"></span> Aliaa Mohamed · Giza, Egypt</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ---------- DATA ---------- */
+const projects=[
+ {c:'Document AI / NLP & Vision',t:'Invoice Document Intelligence System',
+  d:'Extracts structured fields from invoices and PDFs using OCR and layout-aware LayoutLM, served by a FastAPI microservice with per-field confidence scores.',
+  m:['F1 0.9646','Field-level confidence','AWS S3 + Docker'],
+  s:['LayoutLM','HuggingFace','PyTorch','Tesseract OCR','FastAPI','Docker','AWS S3'],
+  g:'https://github.com/Aliaa-mohamed47/invoice-document-intelligence'},
+ {c:'Computer Vision & Edge AI',t:'Containerized Face Mask Detection Pipeline',
+  d:'Classifies mask compliance on 12,000 real-world images, with automated OpenCV face cropping so full-body photos work too.',
+  m:['>90% accuracy','12,000 images','20% crop margin'],
+  s:['MobileNetV2','PyTorch','OpenCV','FastAPI','Docker','Uvicorn'],
+  g:'https://github.com/Aliaa-mohamed47/face-mask-detection'},
+ {c:'Biometric AI & Deep Learning',t:'Face Recognition Attendance System',
+  d:'Identifies people from 512-D FaceNet embeddings with an RBF-kernel SVM and logs daily attendance to CSV, using CLAHE to handle lighting.',
+  m:['98.50% 5-fold CV','512-D embeddings','CLAHE normalization'],
+  s:['FaceNet512','DeepFace','Scikit-learn','OpenCV','SVM','Pandas'],
+  g:'https://github.com/Aliaa-mohamed47/face-recognition-attendance'},
+ {c:'Metaheuristics & Optimization',t:'GA-Based Feature Selection for TB Classification',
+  d:'Genetic Algorithms and Binary PSO isolate the most discriminative features from chest X-rays, explored in an interactive Streamlit dashboard.',
+  m:['73% fewer features','93.57% accuracy','30 runs'],
+  s:['Genetic Algorithms','PSO','OpenCV','KNN','Streamlit','Scikit-learn'],
+  g:'https://github.com/Aliaa-mohamed47/GA-Based-Feature-Selection-for-TB-Classification'}
+];
+const skills={
+ 'AI & Optimization':['Supervised & Unsupervised Learning','Feature Engineering','Multi-Objective Optimization','Genetic Algorithms','Particle Swarm Optimization','Model Evaluation','Statistical Analysis & EDA'],
+ 'Deep Learning (CV & NLP)':['CNNs','MobileNetV2','FaceNet','Transformers','BERT Embeddings','LayoutLM','OpenCV','Tesseract OCR'],
+ 'Frameworks & Libraries':['PyTorch','TorchVision','Scikit-learn','NumPy','Pandas','Matplotlib','Seaborn','Plotly'],
+ 'Tools & Deployment':['Python','Docker','FastAPI','Streamlit','Git & GitHub','SQL','Java','AWS S3']};
+const exp=[
+ {r:'Machine Learning Specialist Trainee (Round 5)',o:'Digital Egypt Pioneers Initiative (DEPI)',w:'Aug 2026 – Present',b:['Intensive track in advanced ML, Deep Learning, Computer Vision and NLP.','Building end-to-end applied AI pipelines, from data engineering to deployment and evaluation.','Collaborating on production-focused CV and NLP capstone projects.']},
+ {r:'Machine Learning Engineering Track',o:'Sprints',w:'Jan 2025 – Feb 2025',b:['Designed end-to-end ML pipelines for 3 production scenarios: EDA, feature engineering, deployment.','Improved F1-scores by 15% through systematic hyperparameter tuning with cross-validation.']},
+ {r:'Software Development & UI Integration Track',o:'IEEE Student Branches Workshops',w:'Feb 2025 – Sep 2025',b:['Built responsive apps with JavaScript (ES6+), React.js and Tailwind CSS.','Connected ML backends to interactive interfaces as full-stack prototypes.']}];
+const hacks=[['NASA International Space Apps Challenge 2025','Galactic Problem Solver · NASA Space Apps Cairo / Helwan University','certs/nasa.jpg'],['Cyber Arena Hackathon 2025 (Battle AI Track)','Helwan Cyber Arena, Faculty of Engineering, Cyshield, NTRA & EG-CERT','certs/cyber_arena.jpg']];
+const certs=[['HCIA-AI V4.0 (Artificial Intelligence)','Huawei ICT Academy · Nov 2025 · ID ICT20251124005582','certs/huawei.jpg'],['SprintUp: AI and Machine Learning Foundations','Sprints · ID SPR-J47Q16','certs/sprints.png'],['Machine Learning Engineering','IEEE TechVerse Bootcamp 3.0, IEEE FCIH · Sep 2025','certs/ieee.jpg'],['Problem Solving (Basic)','HackerRank · Aug 2026','certs/hackerrank_ps.png'],['Python (Basic)','HackerRank · Aug 2026','certs/hackerrank_python.png']];
+
+/* ---------- RENDER ---------- */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+$('#grid').innerHTML=projects.map(p=>`
+<article class="tilt card p-7 flex flex-col rv">
+  <span class="chip self-start acc" style="border-color:var(--acc)">${p.c}</span>
+  <h3 class="font-display font-bold text-xl mt-4">${p.t}</h3>
+  <p class="mute mt-3 leading-relaxed">${p.d}</p>
+  <div class="flex flex-wrap gap-2 mt-5">${p.m.map(x=>`<span class="metric">${x}</span>`).join('')}</div>
+  <div class="flex flex-wrap gap-1.5 mt-5">${p.s.map(x=>`<span class="chip">${x}</span>`).join('')}</div>
+  <a class="btn btn-p mt-auto self-start" style="margin-top:1.75rem" href="${p.g}" target="_blank" rel="noopener"><svg class="w-4 h-4 fill-current"><use href="#gh"/></svg>View on GitHub ↗</a>
+</article>`).join('');
+$('#skillgrid').innerHTML=Object.entries(skills).map(([k,v])=>`
+<div class="card p-6 rv"><h3 class="font-display font-bold text-lg mb-4">${k}</h3>
+<div class="flex flex-wrap gap-2">${v.map(x=>`<span class="chip">${x}</span>`).join('')}</div></div>`).join('');
+$('#tl').innerHTML=exp.map(e=>`
+<div class="rv"><p class="text-sm mute">${e.w}</p><h3 class="font-display font-bold text-xl">${e.r}</h3>
+<p class="font-medium acc">${e.o}</p>
+<ul class="mute mt-3 grid gap-1.5 list-disc pl-5 leading-relaxed">${e.b.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('');
+const cc=c=>`<button type="button" class="card cert p-5 rv text-left w-full" data-src="${c[2]}" data-title="${c[0]}" data-sub="${c[1]}"><p class="font-semibold">${c[0]}</p><p class="mute text-sm mt-1">${c[1]}</p><p class="acc text-sm font-medium mt-3">View certificate ↗</p></button>`;
+$('#hacks').innerHTML=hacks.map(cc).join('');
+$('#certs').innerHTML=certs.map(cc).join('');
+
+/* ---------- THEME (light by default) ---------- */
+const root=document.documentElement, sw=$('#theme');
+function setTheme(d,save){root.classList.toggle('dark',d);sw.setAttribute('aria-checked',d);$('#ti').textContent=d?'☾':'☀';
+ if(save)try{localStorage.setItem('theme',d?'dark':'light')}catch(e){} if(window.recolor)recolor();}
+let saved=null;try{saved=localStorage.getItem('theme')}catch(e){}
+setTheme(saved==='dark',false);
+sw.onclick=()=>setTheme(!root.classList.contains('dark'),true);
+$('#menu').onclick=e=>{const o=$('#mobile').classList.toggle('hidden');e.currentTarget.setAttribute('aria-expanded',!o)};
+$$('#mobile a').forEach(a=>a.onclick=()=>$('#mobile').classList.add('hidden'));
+
+/* ---------- THREE.JS FULL-PAGE BACKGROUND (pausable) ---------- */
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let paused=reduce;try{const m=localStorage.getItem('bgpaused');if(m!==null)paused=m==='1'}catch(e){}
+try{
+ const cv=$('#bg'), R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+ R.setPixelRatio(Math.min(devicePixelRatio,1.75));
+ const S=new THREE.Scene(), C=new THREE.PerspectiveCamera(60,1,.1,100); C.position.z=30;
+ const G=new THREE.Group(); S.add(G);
+ const N=innerWidth<640?220:480, pos=new Float32Array(N*3);
+ for(let i=0;i<N*3;i++)pos[i]=(Math.random()-.5)*(i%3===2?40:70);
+ const pg=new THREE.BufferGeometry(); pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+ const pm=new THREE.PointsMaterial({size:.17,transparent:true,opacity:.5}); G.add(new THREE.Points(pg,pm));
+ const shapes=[],lm=new THREE.MeshBasicMaterial({wireframe:true,transparent:true,opacity:.14});
+ for(let i=0;i<5;i++){const o=new THREE.Mesh(new THREE.IcosahedronGeometry(2+Math.random(),0),lm);
+  o.position.set((Math.random()-.5)*50,(Math.random()-.5)*26,(Math.random()-.5)*14);o.userData.s=.0015+Math.random()*.003;G.add(o);shapes.push(o);}
+ window.recolor=()=>{const c=root.classList.contains('dark')?0x8f90f7:0x4f46e5;pm.color.set(c);lm.color.set(c);draw();};
+ function size(){R.setSize(innerWidth,innerHeight,false);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix();draw();}
+ let mx=0,my=0,raf=0;
+ function draw(){G.position.y=scrollY*.012; R.render(S,C);}
+ function tick(t){raf=requestAnimationFrame(tick);
+  G.rotation.y+=(mx*.4-G.rotation.y+t*.000012)*.03;G.rotation.x+=(my*.25-G.rotation.x)*.03;
+  shapes.forEach(o=>{o.rotation.x+=o.userData.s;o.rotation.y+=o.userData.s;});draw();}
+ function run(on){cancelAnimationFrame(raf);raf=0;if(on&&!document.hidden)raf=requestAnimationFrame(tick);else draw();}
+ const btn=$('#motion'),ic=$('#mi');
+ function sync(){btn.setAttribute('aria-pressed',paused);btn.setAttribute('aria-label',paused?'Resume background animation':'Pause background animation');
+  ic.innerHTML=paused?'<path d="M7 4.5v15l12-7.5z"/>':'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';run(!paused);}
+ btn.onclick=()=>{paused=!paused;try{localStorage.setItem('bgpaused',paused?'1':'0')}catch(e){}sync();};
+ addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+ addEventListener('scroll',()=>{if(paused)draw()},{passive:true});
+ addEventListener('resize',size);
+ document.addEventListener('visibilitychange',()=>run(!paused));
+ size();recolor();sync();
+}catch(e){console.warn('WebGL unavailable; page uses a plain background.',e);$('#motion').hidden=true}
+
+/* ---------- CARD TILT (subtle) ---------- */
+$$('.tilt').forEach(c=>{const k=parseFloat(c.dataset.tilt||1);
+ c.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||reduce)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+  c.classList.add('on');c.style.transform=`perspective(1000px) rotateX(${-y*6*k}deg) rotateY(${x*8*k}deg) translateY(-6px) scale(${k>1?1.02:1})`});
+ c.addEventListener('pointerleave',()=>{c.classList.remove('on');c.style.transform=''});
+});
+
+/* ---------- SCROLL REVEAL ---------- */
+if(window.gsap&&window.ScrollTrigger&&!reduce){gsap.registerPlugin(ScrollTrigger);
+ ScrollTrigger.batch('.rv',{start:'top 90%',once:true,onEnter:b=>gsap.fromTo(b,{y:24,opacity:0},{y:0,opacity:1,duration:.7,stagger:.08,ease:'power2.out',clearProps:'transform,opacity'})});}
+
+/* ---------- CERTIFICATE LIGHTBOX ---------- */
+const modal=$('#modal'),mimg=$('#mimg'),mmiss=$('#mmiss');let lastFocus=null;
+function openCert(b){lastFocus=b;$('#mtitle').textContent=b.dataset.title;$('#msub').textContent=b.dataset.sub;
+ mmiss.classList.add('hidden');mimg.classList.remove('hidden');mimg.alt='Certificate: '+b.dataset.title;
+ mimg.onerror=()=>{mimg.classList.add('hidden');mmiss.textContent='Certificate image not found. Add the file at '+b.dataset.src;mmiss.classList.remove('hidden')};
+ mimg.src=b.dataset.src;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('#mclose').focus();}
+function closeCert(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';mimg.removeAttribute('src');if(lastFocus)lastFocus.focus();}
+document.addEventListener('click',e=>{const b=e.target.closest('button.cert');if(b)openCert(b);else if(e.target===modal||e.target.closest('#mclose'))closeCert();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeCert();});
+
+/* ---------- CONTACT ---------- */
+$('#copy').onclick=async e=>{
+  const b=e.currentTarget;
+  try{await navigator.clipboard.writeText('aliaamohamed472005@gmail.com');b.textContent='Copied!'}
+  catch(_){b.textContent='Press Ctrl+C to copy'}
+  setTimeout(()=>b.textContent='Copy email',1800)
+};
+
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  const ok = $('#ok');
+  const btn = f.querySelector('button[type="submit"]');
+  const v = { n: f.name.value.trim(), e: f.email.value.trim(), m: f.message.value.trim() };
+  const er = {};
+
+  if(v.n.length < 2) er.n = 'Enter your name.';
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.e)) er.e = 'Enter a valid email address.';
+  if(v.m.length < 10) er.m = 'Write at least 10 characters.';
+
+  $$('[data-e]').forEach(d => d.textContent = er[d.dataset.e] || '');
+  if(Object.keys(er).length) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  ok.textContent = '';
+
+  try {
+    const response = await fetch(f.action, {
+      method: 'POST',
+      body: new FormData(f),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      ok.style.color = '#10b981';
+      ok.textContent = 'Thank you! Your message has been sent successfully.';
+      f.reset();
+    } else {
+      ok.style.color = '#d6336c';
+      ok.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch (err) {
+    ok.style.color = '#d6336c';
+    ok.textContent = 'Network error. Please try again later.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send message';
+  }
+});
+</script>
+</body>
+</html>
